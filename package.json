@@ -1,0 +1,27 @@
+{
+  "name": "browser-readiness-lab",
+  "version": "1.0.0",
+  "description": "For browser core curriculum readiness",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "readiness",
+    "browser",
+    "curriculum",
+    "frontend",
+    "html",
+    "javascript",
+    "js",
+    "css"
+  ],
+  "author": "Sheng Jiang (CSS)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "formidable": "^1.2.1",
+    "nodemon": "^1.18.6"
+  }
+}
