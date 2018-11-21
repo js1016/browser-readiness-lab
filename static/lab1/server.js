@@ -2,7 +2,6 @@
 const formidable = require('formidable');
 
 module.exports = function (app) {
-    console.log('aaa');
     app.post('/lab1/submit', (req, res) => {
         let form = new formidable.IncomingForm(), fields = [];
         form.on('field', function (field, value) {
