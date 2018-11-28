@@ -1,12 +1,11 @@
-const path = require('path');
 const express = require('express');
-const util = require('util');
 
 const app = express();
 
 app.use(express.static('static'));
 
 require('./static/lab1/server')(app);
+require('./static/lab2/server')(app);
 
 const PORT = process.env.PORT || 8080
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LAB2: AJAX</title>
+</head>
+
+<body>
+    <h3>Weather info:</h3>
+    <div id="weather-data"></div>
+    <button id="load-data">Load Weather Data</button>
+    <script>
+        document.getElementById('load-data').onclick = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById('weather-data').innerHTML = this.responseText;
+                }
+            }
+            xhr.open('GET', '/lab2/getWeatherData');
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>
