@@ -13,11 +13,20 @@ function getRandomWeatherData() {
     }
 }
 
+function sendWeatherData(res) {
+    let weatherData = getRandomWeatherData();
+    res.set('Cache-Control', 'no-cache');
+    res.send(`<div>Min: ${weatherData.min}°C</div><div>Max: ${weatherData.max}°C</div>`);
+}
+
 module.exports = function (app) {
     app.get('/lab2/getWeatherData', (req, res) => {
-        let weatherData = getRandomWeatherData();
-        res.set('Cache-Control', 'no-cache');
-        res.send(`<div>Min: ${weatherData.min}°C</div><div>Max: ${weatherData.max}°C</div>`);
+        sendWeatherData(res);
+    });
+    app.get('/lab2/getWeatherDataSlow', (req, res) => {
+        setTimeout(function () {
+            sendWeatherData(res);
+        }, 30 * 1000);
     });
     app.get('/lab2/getWeatherDataJSON', (req, res) => {
         res.json(getRandomWeatherData());
