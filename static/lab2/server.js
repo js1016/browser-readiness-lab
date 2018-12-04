@@ -21,22 +21,19 @@ function sendWeatherData(res) {
 
 module.exports = function (app) {
     app.get('/lab2/getWeatherData', (req, res) => {
-        sendWeatherData(res);
-    });
-    app.get('/lab2/getWeatherDataSlow', (req, res) => {
-        setTimeout(function () {
+        let delaySeconds = Number(req.query.delay);
+        if (delaySeconds) {
+            setTimeout(function () {
+                sendWeatherData(res);
+            }, delaySeconds * 1000);
+        } else {
             sendWeatherData(res);
-        }, 30 * 1000);
+        }
     });
     app.get('/lab2/getWeatherDataJSON', (req, res) => {
         res.json(getRandomWeatherData());
     });
-    app.get('/lab2/500-server-err', (req, res) => {
+    app.get('/lab2/getWeatherDataErr', (req, res) => {
         res.status(500).send('Server Error');
-    });
-    app.get('/lab2/timeout', (req, res) => {
-        setTimeout(function () {
-            res.send('Hi after 5 minutes');
-        }, 5 * 60 * 1000);
     });
 }
