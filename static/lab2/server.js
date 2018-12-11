@@ -31,6 +31,7 @@ module.exports = function (app) {
         }
     });
     app.get('/lab2/getWeatherDataJSON', (req, res) => {
+        res.set('Cache-Control', 'no-cache');
         res.json(getRandomWeatherData());
     });
     app.get('/lab2/getWeatherDataErr', (req, res) => {

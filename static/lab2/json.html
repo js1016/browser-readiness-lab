@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LAB2: Handle JSON in AJAX</title>
+    <script src="jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <h3>Weather info:</h3>
+    <div id="weather-data">
+        <div>Min: <span id="min"></span>°C</div>
+        <div>Max: <span id="max"></span>°C</div>
+    </div>
+    <button id="load-data">Load Weather Data</button>
+    <script>
+        var $weatherDataDiv = $('#weather-data');
+        var $minSpan = $('#min');
+        var $maxSpan = $('#max');
+        $weatherDataDiv.hide();
+        $('#load-data').click(function () {
+            $.ajax({
+                url: '/lab2/getWeatherDataJSON',
+                dataType: 'json',
+                success: function (response) {
+                    $minSpan.text(response.min);
+                    $maxSpan.text(response.max);
+                    $weatherDataDiv.show();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
