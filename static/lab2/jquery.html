@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LAB2: AJAX on jQuery</title>
+    <script src="jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <h3>Weather info:</h3>
+    <div id="weather-data"></div>
+    <button id="load-data">Load Weather Data</button>
+    <script>
+        $('#load-data').click(function () {
+            $.get('/lab2/getWeatherData', function (response) {
+                $('#weather-data').html(response);
+            });
+        });
+    </script>
+</body>
+
+</html>
