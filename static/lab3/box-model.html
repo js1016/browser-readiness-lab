@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Box Model</title>
+    <script src="moment-with-locales.js"></script>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            font-weight: 100;
+        }
+
+        #container {
+            background: url(bg.jpg) no-repeat;
+            width: 1600px;
+            height: 900px;
+        }
+
+        #top-area>div {
+            display: inline-block;
+        }
+
+        #description {
+        }
+
+        #description>div {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #description>div:first-child {
+            background: rgba(0, 0, 0, 0.3) url(search.png) no-repeat 6px;
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+        }
+
+        #description>div:last-child {
+        }
+
+        #like-what-u-see>div {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #like-what-u-see>div:first-child {
+            background: rgba(0, 0, 0, 0.3) url(camera.png) no-repeat 6px;
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+        }
+
+        #like-what-u-see>div:last-child {
+        }
+
+        #network-icon {
+            background: url(network.png) no-repeat 100% 0px;
+            width: 100%;
+            height: 23px;
+        }
+
+        #date-time {
+        }
+
+        #time {
+            font-size: 100px;
+            line-height: 100px;
+        }
+
+        #date {
+            font-size: 56px;
+            line-height: 56px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="top-area">
+            <div id="description">
+                <div></div>
+                <div>It's sunny along this coast much of the time. In fact, we have it on good authority
+                    that...</div>
+            </div>
+            <div id="like-what-u-see">
+                <div></div>
+                <div>Like what you see?</div>
+            </div>
+        </div>
+        <div id="date-time">
+            <div id="time"></div>
+            <div id="date"></div>
+        </div>
+        <div id="network-icon"></div>
+    </div>
+    <script>
+        var timeDiv = document.getElementById('time');
+        var dateDiv = document.getElementById('date');
+        updateTime();
+        function updateTime() {
+            var now = moment();
+            timeDiv.innerHTML = now.locale('en-us').format('HH:mm');
+            dateDiv.innerHTML = now.locale('en-us').format('dddd, MMMM DD');
+            window.setTimeout(function () {
+                updateTime();
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

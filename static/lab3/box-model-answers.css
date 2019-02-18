@@ -1,0 +1,26 @@
+#container {
+    width: 1530px;
+    height: 830px;
+    padding: 35px;
+}
+
+#description {
+    width: 80%;
+}
+
+#description>div:last-child {
+    width: 280px;
+    margin-left: 13px;
+}
+
+#like-what-u-see>div:last-child {
+    margin-left: 13px;
+}
+
+#date-time {
+    margin-top: 580px;
+}
+
+#date {
+    margin-top: 10px;
+}
